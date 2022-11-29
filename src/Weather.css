@@ -1,0 +1,100 @@
+.Weather .current-time {
+  list-style: none;
+  font-size: 16px;
+  color: rgb(2, 1, 56);
+  text-align: center;
+}
+
+.Weather {
+  max-width: 450px;
+  margin: 0 auto;
+}
+.Weather .btn {
+  padding: 7.5px;
+  width: 90px;
+  background: rgb(172, 4, 54);
+  border: 1px solid rgb(172, 4, 54);
+  transition: all 2s linear;
+}
+.Weather .btn:hover {
+  background: rgb(172, 4, 54);
+  border: 1px solid rgb(172, 4, 54);
+  opacity: 0.8;
+}
+.Weather .btn-location {
+  padding: 7.5px;
+  margin-left: 5px;
+  width: 90px;
+  color: #fff;
+  background: rgb(223, 33, 90);
+  border: 1px solid rgb(223, 33, 90);
+  transition: all 2s linear;
+}
+.Weather .btn-location:hover {
+  color: #fff;
+  background: rgb(223, 33, 90);
+  border: 1px solid rgb(223, 33, 90);
+  opacity: 0.8;
+}
+.Weather .icon {
+  max-width: 65px;
+  margin-left: 5px;
+}
+.Weather .temperature {
+  font-size: 28px;
+}
+
+.Weather .main-description {
+  display: block;
+  color: rgb(2, 1, 56);
+  font-size: 20px;
+  margin-left: 22px;
+}
+.Weather .description {
+  text-align: right;
+  padding-right: 30px;
+  padding-top: 15px;
+}
+.Weather .city {
+  margin-bottom: 30px;
+}
+.Weather .days {
+  border: 1px solid rgb(2, 1, 56);
+  text-align: center;
+  max-width: 450px;
+  padding: 20px 20px 10px 20px;
+  margin: 20px 0px;
+}
+
+.Weather .forecast-icon {
+  max-width: 40px;
+  color: orangered;
+}
+
+.Weather .add-inform {
+  margin-top: 30px;
+  padding-left: 50px;
+}
+.Weather .add-inform p {
+  font-size: 14px;
+}
+.Weather .add-inform-values {
+  text-align: right;
+  padding-right: 65px;
+}
+.Weather .forecast-temperature {
+  padding-top: 10px;
+  padding-bottom: 0px;
+  font-size: 14px;
+}
+.Weather .git-link {
+  color: rgb(172, 4, 54);
+  font-size: 14px;
+  margin-left: 50px;
+}
+.Weather .git-link:hover {
+  color: rgb(2, 1, 56);
+}
+.Weather .git {
+  margin-top: 40px;
+}
