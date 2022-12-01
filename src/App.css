@@ -46,3 +46,14 @@ a:hover {
   text-decoration: none;
   color: rgb(2, 1, 56);
 }
+.App .git-link {
+  color: rgb(172, 4, 54);
+  font-size: 14px;
+}
+.App .git-link:hover {
+  color: rgb(2, 1, 56);
+}
+.App .git {
+  margin-top: 40px;
+  text-align: center;
+}

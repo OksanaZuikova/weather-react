@@ -87,14 +87,3 @@
   padding-bottom: 0px;
   font-size: 14px;
 }
-.Weather .git-link {
-  color: rgb(172, 4, 54);
-  font-size: 14px;
-  margin-left: 50px;
-}
-.Weather .git-link:hover {
-  color: rgb(2, 1, 56);
-}
-.Weather .git {
-  margin-top: 40px;
-}
