@@ -1,25 +1,16 @@
 import React, { useState } from "react";
 import "./Weather.css";
 import axios from "axios";
+import FormateDate from "./FormateDate";
+import FormateTime from "./FormateTime";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
 
   function handleResponse(response) {
-    const sunriseTime = new Date(response.data.sys.sunrise * 1000);
-    const sunsetTime = new Date(response.data.sys.sunset * 1000);
-    let sunriseMinutes = sunriseTime.getMinutes();
-    if (sunriseMinutes < 10) {
-      sunriseMinutes = `0${sunriseMinutes}`;
-    }
-    let sunsetMinutes = sunsetTime.getMinutes();
-    if (sunsetMinutes < 10) {
-      sunsetMinutes = `0${sunsetMinutes}`;
-    }
-
     setWeatherData({
       ready: true,
-      date: "13.11.22",
+      date: new Date(response.data.dt * 1000),
       time: "23:35",
       city: response.data.name,
       temperature: Math.round(response.data.main.temp),
@@ -27,8 +18,8 @@ export default function Weather(props) {
       humidity: response.data.main.humidity,
       wind: Math.round(response.data.wind.speed),
       pressure: response.data.main.pressure,
-      sunrise: `${sunriseTime.getHours()}:${sunriseMinutes}`,
-      sunset: `${sunsetTime.getHours()}:${sunsetMinutes}`,
+      sunrise: new Date(response.data.sys.sunrise * 1000),
+      sunset: new Date(response.data.sys.sunset * 1000),
       cloud: response.data.clouds.all,
       min_temperature: Math.round(response.data.main.temp_min),
       max_temperature: Math.round(response.data.main.temp_max),
@@ -59,8 +50,7 @@ export default function Weather(props) {
               </div>
               <div className="col-5">
                 <ul className="current-time">
-                  <li>{weatherData.date}</li>
-                  <li>{weatherData.time}</li>
+                  <FormateDate date={weatherData.date} />
                 </ul>
               </div>
             </div>
@@ -104,10 +94,10 @@ export default function Weather(props) {
               <span>{weatherData.pressure}</span> mb
             </p>
             <p>
-              <span>{weatherData.sunrise}</span> am
+              <FormateTime time={weatherData.sunrise} /> am
             </p>
             <p>
-              <span>{weatherData.sunset}</span> pm
+              <FormateTime time={weatherData.sunset} /> pm
             </p>
             <p>
               <span>{weatherData.cloud}</span>%
