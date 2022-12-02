@@ -23,7 +23,7 @@ export default function Weather(props) {
       cloud: response.data.clouds.all,
       min_temperature: Math.round(response.data.main.temp_min),
       max_temperature: Math.round(response.data.main.temp_max),
-      icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      icon: response.data.weather[0].icon,
     });
   }
 
@@ -53,7 +53,7 @@ export default function Weather(props) {
             id="search-text-input"
             onChange={handleCityChange}
           />
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary ms-1">
             Search
           </button>
           <button className="btn btn-location">Current</button>
