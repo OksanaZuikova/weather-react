@@ -87,3 +87,7 @@
   padding-bottom: 0px;
   font-size: 14px;
 }
+.Weather .unit {
+  margin-left: 10px;
+  font-size: 24px;
+}
