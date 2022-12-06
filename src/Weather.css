@@ -48,7 +48,7 @@
   display: block;
   color: rgb(2, 1, 56);
   font-size: 20px;
-  margin-left: 30px;
+  margin-left: 25px;
 }
 .Weather .description {
   text-align: right;
@@ -85,9 +85,15 @@
 .Weather .forecast-temperature {
   padding-top: 10px;
   padding-bottom: 0px;
-  font-size: 14px;
+  font-size: 15px;
 }
 .Weather .unit {
   margin-left: 10px;
   font-size: 24px;
+}
+.Weather .min-temp {
+  opacity: 0.6;
+}
+.Weather .degrees a {
+  text-decoration: none;
 }

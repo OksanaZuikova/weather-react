@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./Weather.css";
 import axios from "axios";
 import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
+import WeatherMoreInfo from "./WeatherMoreInfo";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -10,6 +12,7 @@ export default function Weather(props) {
   function handleResponse(response) {
     setWeatherData({
       ready: true,
+      coord: response.data.coord,
       date: new Date(response.data.dt * 1000),
       time: "23:35",
       city: response.data.name,
@@ -33,6 +36,14 @@ export default function Weather(props) {
     axios.get(apiUrl).then(handleResponse);
   }
 
+  function retrievePosition(position) {
+    let lat = position.coords.latitude;
+    let lon = position.coords.longitude;
+    let apiKey = "4153903a26a56002551e2a95d2d2783b";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+    axios.get(apiUrl).then(handleResponse);
+  }
+
   function handleSubmit(event) {
     event.preventDefault();
     search();
@@ -40,6 +51,11 @@ export default function Weather(props) {
 
   function handleCityChange(event) {
     setCity(event.target.value);
+  }
+
+  function showCurrentWeather(event) {
+    event.preventDefault();
+    navigator.geolocation.getCurrentPosition(retrievePosition);
   }
 
   if (weatherData.ready) {
@@ -56,9 +72,13 @@ export default function Weather(props) {
           <button type="submit" className="btn btn-primary ms-1">
             Search
           </button>
-          <button className="btn btn-location">Current</button>
+          <button className="btn btn-location" onClick={showCurrentWeather}>
+            Current
+          </button>
         </form>
         <WeatherInfo data={weatherData} />
+        <WeatherForecast data={weatherData} />
+        <WeatherMoreInfo data={weatherData} />
       </div>
     );
   } else {
