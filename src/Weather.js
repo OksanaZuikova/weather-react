@@ -4,6 +4,7 @@ import axios from "axios";
 import WeatherInfo from "./WeatherInfo";
 import WeatherForecast from "./WeatherForecast";
 import WeatherMoreInfo from "./WeatherMoreInfo";
+import { Circles } from "react-loader-spinner";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -14,7 +15,6 @@ export default function Weather(props) {
       ready: true,
       coord: response.data.coord,
       date: new Date(response.data.dt * 1000),
-      time: "23:35",
       city: response.data.name,
       temperature: Math.round(response.data.main.temp),
       description: response.data.weather[0].description,
@@ -65,7 +65,7 @@ export default function Weather(props) {
           <input
             type="text"
             placeholder="Enter the city"
-            autocomplete="off"
+            autoComplete="off"
             id="search-text-input"
             onChange={handleCityChange}
           />
@@ -83,6 +83,16 @@ export default function Weather(props) {
     );
   } else {
     search();
-    return "Loading...";
+    return (
+      <Circles
+        height="80"
+        width="80"
+        color="#ac0436"
+        ariaLabel="circles-loading"
+        wrapperStyle={{}}
+        wrapperClass="loader"
+        visible={true}
+      />
+    );
   }
 }

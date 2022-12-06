@@ -1,4 +1,4 @@
-.Weather .current-time {
+.Weather .current-date {
   list-style: none;
   font-size: 16px;
   color: rgb(2, 1, 56);
@@ -16,11 +16,7 @@
   border: 1px solid rgb(172, 4, 54);
   transition: all 2s linear;
 }
-.Weather .btn:hover {
-  background: rgb(172, 4, 54);
-  border: 1px solid rgb(172, 4, 54);
-  opacity: 0.8;
-}
+
 .Weather .btn-location {
   padding: 7.5px;
   margin-left: 5px;
@@ -30,12 +26,7 @@
   border: 1px solid rgb(223, 33, 90);
   transition: all 2s linear;
 }
-.Weather .btn-location:hover {
-  color: #fff;
-  background: rgb(223, 33, 90);
-  border: 1px solid rgb(223, 33, 90);
-  opacity: 0.8;
-}
+
 .Weather .icon {
   max-width: 65px;
   margin-left: 5px;
@@ -87,13 +78,20 @@
   padding-bottom: 0px;
   font-size: 15px;
 }
-.Weather .unit {
-  margin-left: 10px;
+.Weather .temp {
+  margin-left: 15px;
   font-size: 24px;
+}
+.Weather .week-day {
+  color: rgb(2, 1, 56);
 }
 .Weather .min-temp {
   opacity: 0.6;
 }
+
 .Weather .degrees a {
   text-decoration: none;
+}
+.loader {
+  justify-content: center;
 }
